@@ -24,7 +24,7 @@ function Main({onEditAvatar, onAddPlace, onEditProfile, onCardClick}) {
       <section className="profile">
         <button className="profile__avatar-edit-btn" 
           style={{ backgroundImage: `url(${userData.avatar})` }}
-          onClick={() => {onEditAvatar(true)}}>
+          onClick={() => {onEditAvatar()}}>
             <img src={userData.userAvatar} alt="Аватар" className="profile__avatar"  name="avatar"/>
         </button>
         <div className="profile__info">
