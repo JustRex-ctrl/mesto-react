@@ -50,7 +50,7 @@ class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: cardElement.place,
+        name: cardElement.name,
         link: cardElement.link,
       }),
     }).then(res => this._handleResponce(res));
