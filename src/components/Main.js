@@ -21,7 +21,7 @@ function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike,
         <button className="profile__add-button link-hover" onClick={onAddPlace} type="button"></button>
       </section>
       
-      <section class="elements">
+      <section className="elements">
         {cards.map((card) => <Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete}/>)}
       </section>
     </main>

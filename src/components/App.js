@@ -36,6 +36,7 @@ function App() {
   function handleCardDelete(cardId) {
     apiSetting.deleteCard(cardId)
     .then(() => setCards(cards => cards.filter(с => с._id !== cardId)))
+    .catch(err => console.log(`Ошибка: ${err.status}`));
 }
 
   function handleUpdateUser(userData) {
@@ -52,10 +53,12 @@ function App() {
     setCurrentUser(res);
     closeAllPopups();
   })
+  .catch(err => console.log(`Ошибка: ${err.status}`));
 }
   function handleCardLike(card, isLiked) { 
     apiSetting.likeRemove(card._id, isLiked)
     .then((res) => setCards(cards => cards.map(c => c._id === card._id ? res : c)))
+    .catch(err => console.log(`Ошибка: ${err.status}`));
 }
 
   function handleAddPlaceSubmit(card) {
@@ -64,6 +67,7 @@ function App() {
     setCards([newCard, ...cards]);
     closeAllPopups();
   })
+  .catch(err => console.log(`Ошибка: ${err.status}`));
 }
 
   function closeAllPopups(){
@@ -79,10 +83,11 @@ function App() {
       setCurrentUser(user);
       setCards(cards);
     })
+    .catch(err => console.log(`Ошибка: ${err.status}`));
   },[]);
 
   return (
-    <body className="page">
+    <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
       <Header />
       <Main 
@@ -118,7 +123,7 @@ function App() {
 
       <Footer/>
       </CurrentUserContext.Provider>
-    </body>
+    </div>
   );
 }
 
