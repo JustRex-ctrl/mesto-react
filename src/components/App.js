@@ -45,6 +45,7 @@ function App() {
     setCurrentUser(res);
     closeAllPopups();
   })
+  .catch(err => console.log(`Ошибка: ${err.status}`)); 
 }
 
   function handleUpdateAvatar(avatar) {
